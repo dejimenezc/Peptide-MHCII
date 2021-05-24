@@ -12,6 +12,8 @@ aminoacids = {"D":"ASP", "E":"GLU", "R":"ARG", "K":"LYS", "N":"ASN", "H":"HIS",
               "W":"TRP", "C":"CYS" }
 
 def ReadCSVPeptide(filename):
+    # inpout filename 
+    # output list with peptides
     Pep_selection = open(filename, "r", encoding='utf-8-sig')
     peptides = Pep_selection.readlines()
     list_peptides = []
