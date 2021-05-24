@@ -11,13 +11,23 @@ aminoacids = {"D":"ASP", "E":"GLU", "R":"ARG", "K":"LYS", "N":"ASN", "H":"HIS",
               "P":"PRO", "L":"LEU", "F":"PHE", "Y":"TYR", "I":"ILE", "M":"MET", 
               "W":"TRP", "C":"CYS" }
 
-Pep_selection = open("prueba.csv", "r", encoding='utf-8-sig')
-peptides = Pep_selection.readlines()
-list_peptides = []
-for peptide in peptides:
-    list_peptides.append(peptide.strip())
+def ReadCSVPeptide(filename):
+    Pep_selection = open(filename, "r", encoding='utf-8-sig')
+    peptides = Pep_selection.readlines()
+    list_peptides = []
+    for peptide in peptides:
+        list_peptides.append(peptide.strip())
+    Pep_selection.close()   
+    return list_peptides
 
-Pep_selection.close()
+ReadCSVPeptide("prueba.csv")
+#Pep_selection = open("prueba.csv", "r", encoding='utf-8-sig')
+#peptides = Pep_selection.readlines()
+#list_peptides = []
+#for peptide in peptides:
+#    list_peptides.append(peptide.strip())
+#
+#Pep_selection.close()
 
 Pep_structure = open("pep_pdb.tleap", "w")
 Pep_structure.write("source leaprc.protein.ff14SB" + "\n" + "source leaprc.gaff" + 
