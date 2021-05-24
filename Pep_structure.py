@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """
+Input : CSV with a list of peptides
+Output : Scripts of tleap.
 El programa recibe un archivo .csv con una lista de peptidos y devuelve un archivo 
 .tleap con los comandos para contruir un archivo .pdb para cada uno de los péptidos
 """
