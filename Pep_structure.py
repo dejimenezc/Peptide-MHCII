@@ -48,8 +48,8 @@ for peptide in list_peptides:
         conditional_2.append(aa)
         Pep_structure.write(aminoacids[aa] + " ") 
         if len(aas) == len(conditional_2):
-            Pep_structure.write("NME }" + "\n" + "savepdb prot sequence_" + 
-                                str(list_peptides.index(peptide)+1) + ".pdb" + 
+            Pep_structure.write("NME }" + "\n" + "savepdb prot " + 
+                                "".join(aas) + ".pdb" + 
                                 "\n")
     if len(list_peptides) == len(conditional_1):
         Pep_structure.write("\n" + "quit")
