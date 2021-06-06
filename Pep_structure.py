@@ -14,15 +14,18 @@ aminoacids = {"D":"ASP", "E":"GLU", "R":"ARG", "K":"LYS", "N":"ASN", "H":"HIS",
 def ReadCSVPeptide(filename):
     # inpout filename 
     # output list with peptides
+    
     Pep_selection = open(filename, "r", encoding='utf-8-sig')
     peptides = Pep_selection.readlines()
     list_peptides = []
     for peptide in peptides:
+        if(peptide.strip()[0]=="#"):
+            continue
         list_peptides.append(peptide.strip())
     Pep_selection.close()   
     return list_peptides
 
-ReadCSVPeptide("prueba.csv")
+list_peptides = ReadCSVPeptide("./Data/TestPepFile_24_05.csv")
 #Pep_selection = open("prueba.csv", "r", encoding='utf-8-sig')
 #peptides = Pep_selection.readlines()
 #list_peptides = []
@@ -45,8 +48,8 @@ for peptide in list_peptides:
         conditional_2.append(aa)
         Pep_structure.write(aminoacids[aa] + " ") 
         if len(aas) == len(conditional_2):
-            Pep_structure.write("NME }" + "\n" + "savepdb prot sequence_" + 
-                                str(list_peptides.index(peptide)+1) + ".pdb" + 
+            Pep_structure.write("NME }" + "\n" + "savepdb prot " + 
+                                "".join(aas) + ".pdb" + 
                                 "\n")
     if len(list_peptides) == len(conditional_1):
         Pep_structure.write("\n" + "quit")
